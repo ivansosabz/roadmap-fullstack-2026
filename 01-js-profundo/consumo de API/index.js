@@ -24,15 +24,18 @@ const paintPokemon = (data) => {
         // primero se evalua si la data vino bien
         if (data) {
             template.innerHTML = `
-            <div class="card">
-                <img
-                    loading="lazy" 
-                    class="card-img-top"
-                    src="${data.sprites.other.dream_world.front_default}" 
-                    alt="${data.name}"
-                >
-                <h2 class="card-title">${data.name}</h2>
-                <div class="types">${
+            <div class="card pokemon-card">
+                <div class="card-image-wrapper">
+                    <img
+                        loading="lazy" 
+                        class="card-img-top pokemon-img"
+                        src="${data.sprites.other.dream_world.front_default}" 
+                        alt="${data.name}"
+                    >
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title text-capitalize">${data.name}</h2>
+                    <div class="types d-flex justify-content-center gap-2">${
                 // data.types.map(type => `<p class="card-text">${type.type.name}</p>`).join("")
                 data.types.map(type => {
                     // nombre del tipo del pokemon
@@ -40,6 +43,7 @@ const paintPokemon = (data) => {
                     return `<span class="pokemon-type-span pokemon-type-${typePokemon}">${typePokemon}</span>`
                 }).join("")
                 }</div>
+                </div>
             </div>
             `;
             const cloneTemplate = template.content.cloneNode(true);
@@ -62,10 +66,10 @@ const paintPokemonForType = async (btnId) => {
             if (data) {
                 const typesPokemon = data.types.map(type => type.type.name);
                 console.log(typesPokemon);
-                if(btnId === "all"){
+                if (btnId === "all") {
                     paintPokemon(data);
-                }else 
-                    if(typesPokemon.some(typePokemon => typePokemon.includes(btnId))){
+                } else
+                    if (typesPokemon.some(typePokemon => typePokemon.includes(btnId))) {
                         paintPokemon(data);
                     }
             }
@@ -82,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("click", (e) => {
 
-    if(e.target.classList.contains("btn-types")){
-        console.log(event.target.id);
-        paintPokemonForType(event.target.id);
+    if (e.target.classList.contains("btn-types")) {
+        console.log(e.target.id);
+        paintPokemonForType(e.target.id);
     }
 });

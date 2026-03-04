@@ -1,11 +1,80 @@
 /* Estilos generales */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    /* Fondo más amigable */
 }
 
 header h1 {
+    font-weight: 800;
+    color: #2c3e50;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Pokémon Card Styles */
+.pokemon-card {
+    width: 15rem;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+    /* Sombra elegante */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+/* Animación al pasar el mouse por la card */
+.pokemon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor de la imagen del pokemon */
+.card-image-wrapper {
+    background-color: #f8f9fa;
+    /* Fondo gris claro */
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-img {
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+    /* Transición suave para el zoom */
+}
+
+.pokemon-card:hover .pokemon-img {
+    transform: scale(1.15);
+    /* Zoom en la imagen al hacer hover sobre la card */
+}
+
+.card-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.25rem;
     font-weight: 700;
     color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Base styles for the type badges */
+.pokemon-type-span {
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Efecto 3D en la etiqueta */
 }
 
 /* Base para los botones de tipos */
