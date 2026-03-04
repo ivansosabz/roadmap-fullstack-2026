@@ -1,0 +1,359 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header h1 {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Base para los botones de tipos */
+.btn-types {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Colores personalizados por tipo de Pokémon */
+.btn-types-all {
+    border-color: #333;
+    color: #333;
+    background-color: transparent;
+}
+
+.btn-types-all:hover,
+.btn-types-all:focus {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+.btn-types-normal {
+    border-color: #A8A77A;
+    color: #A8A77A;
+    background-color: transparent;
+}
+
+.btn-types-normal:hover,
+.btn-types-normal:focus {
+    background-color: #A8A77A;
+    color: white;
+    border-color: #A8A77A;
+}
+
+.btn-types-fire {
+    border-color: #EE8130;
+    color: #EE8130;
+    background-color: transparent;
+}
+
+.btn-types-fire:hover,
+.btn-types-fire:focus {
+    background-color: #EE8130;
+    color: white;
+    border-color: #EE8130;
+}
+
+.btn-types-water {
+    border-color: #6390F0;
+    color: #6390F0;
+    background-color: transparent;
+}
+
+.btn-types-water:hover,
+.btn-types-water:focus {
+    background-color: #6390F0;
+    color: white;
+    border-color: #6390F0;
+}
+
+.btn-types-grass {
+    border-color: #7AC74C;
+    color: #7AC74C;
+    background-color: transparent;
+}
+
+.btn-types-grass:hover,
+.btn-types-grass:focus {
+    background-color: #7AC74C;
+    color: white;
+    border-color: #7AC74C;
+}
+
+.btn-types-electric {
+    border-color: #F7D02C;
+    color: #F7D02C;
+    background-color: transparent;
+}
+
+.btn-types-electric:hover,
+.btn-types-electric:focus {
+    background-color: #F7D02C;
+    color: #333;
+    border-color: #F7D02C;
+}
+
+.btn-types-ice {
+    border-color: #96D9D6;
+    color: #96D9D6;
+    background-color: transparent;
+}
+
+.btn-types-ice:hover,
+.btn-types-ice:focus {
+    background-color: #96D9D6;
+    color: #333;
+    border-color: #96D9D6;
+}
+
+.btn-types-fighting {
+    border-color: #C22E28;
+    color: #C22E28;
+    background-color: transparent;
+}
+
+.btn-types-fighting:hover,
+.btn-types-fighting:focus {
+    background-color: #C22E28;
+    color: white;
+    border-color: #C22E28;
+}
+
+.btn-types-poison {
+    border-color: #A33EA1;
+    color: #A33EA1;
+    background-color: transparent;
+}
+
+.btn-types-poison:hover,
+.btn-types-poison:focus {
+    background-color: #A33EA1;
+    color: white;
+    border-color: #A33EA1;
+}
+
+.btn-types-ground {
+    border-color: #E2BF65;
+    color: #E2BF65;
+    background-color: transparent;
+}
+
+.btn-types-ground:hover,
+.btn-types-ground:focus {
+    background-color: #E2BF65;
+    color: white;
+    border-color: #E2BF65;
+}
+
+.btn-types-flying {
+    border-color: #A98FF3;
+    color: #A98FF3;
+    background-color: transparent;
+}
+
+.btn-types-flying:hover,
+.btn-types-flying:focus {
+    background-color: #A98FF3;
+    color: white;
+    border-color: #A98FF3;
+}
+
+.btn-types-psychic {
+    border-color: #F95587;
+    color: #F95587;
+    background-color: transparent;
+}
+
+.btn-types-psychic:hover,
+.btn-types-psychic:focus {
+    background-color: #F95587;
+    color: white;
+    border-color: #F95587;
+}
+
+.btn-types-bug {
+    border-color: #A6B91A;
+    color: #A6B91A;
+    background-color: transparent;
+}
+
+.btn-types-bug:hover,
+.btn-types-bug:focus {
+    background-color: #A6B91A;
+    color: white;
+    border-color: #A6B91A;
+}
+
+.btn-types-rock {
+    border-color: #B6A136;
+    color: #B6A136;
+    background-color: transparent;
+}
+
+.btn-types-rock:hover,
+.btn-types-rock:focus {
+    background-color: #B6A136;
+    color: white;
+    border-color: #B6A136;
+}
+
+.btn-types-ghost {
+    border-color: #735797;
+    color: #735797;
+    background-color: transparent;
+}
+
+.btn-types-ghost:hover,
+.btn-types-ghost:focus {
+    background-color: #735797;
+    color: white;
+    border-color: #735797;
+}
+
+.btn-types-dragon {
+    border-color: #6F35FC;
+    color: #6F35FC;
+    background-color: transparent;
+}
+
+.btn-types-dragon:hover,
+.btn-types-dragon:focus {
+    background-color: #6F35FC;
+    color: white;
+    border-color: #6F35FC;
+}
+
+.btn-types-dark {
+    border-color: #705746;
+    color: #705746;
+    background-color: transparent;
+}
+
+.btn-types-dark:hover,
+.btn-types-dark:focus {
+    background-color: #705746;
+    color: white;
+    border-color: #705746;
+}
+
+.btn-types-steel {
+    border-color: #B7B7CE;
+    color: #B7B7CE;
+    background-color: transparent;
+}
+
+.btn-types-steel:hover,
+.btn-types-steel:focus {
+    background-color: #B7B7CE;
+    color: #333;
+    border-color: #B7B7CE;
+}
+
+.btn-types-fairy {
+    border-color: #D685AD;
+    color: #D685AD;
+    background-color: transparent;
+}
+
+.btn-types-fairy:hover,
+.btn-types-fairy:focus {
+    background-color: #D685AD;
+    color: #333;
+    border-color: #D685AD;
+}
+
+/* Background colors para los badges de las cards */
+.pokemon-type-normal {
+    background-color: #A8A77A;
+    color: white;
+}
+
+.pokemon-type-fire {
+    background-color: #EE8130;
+    color: white;
+}
+
+.pokemon-type-water {
+    background-color: #6390F0;
+    color: white;
+}
+
+.pokemon-type-grass {
+    background-color: #7AC74C;
+    color: white;
+}
+
+.pokemon-type-electric {
+    background-color: #F7D02C;
+    color: #333;
+}
+
+.pokemon-type-ice {
+    background-color: #96D9D6;
+    color: #333;
+}
+
+.pokemon-type-fighting {
+    background-color: #C22E28;
+    color: white;
+}
+
+.pokemon-type-poison {
+    background-color: #A33EA1;
+    color: white;
+}
+
+.pokemon-type-ground {
+    background-color: #E2BF65;
+    color: white;
+}
+
+.pokemon-type-flying {
+    background-color: #A98FF3;
+    color: white;
+}
+
+.pokemon-type-psychic {
+    background-color: #F95587;
+    color: white;
+}
+
+.pokemon-type-bug {
+    background-color: #A6B91A;
+    color: white;
+}
+
+.pokemon-type-rock {
+    background-color: #B6A136;
+    color: white;
+}
+
+.pokemon-type-ghost {
+    background-color: #735797;
+    color: white;
+}
+
+.pokemon-type-dragon {
+    background-color: #6F35FC;
+    color: white;
+}
+
+.pokemon-type-dark {
+    background-color: #705746;
+    color: white;
+}
+
+.pokemon-type-steel {
+    background-color: #B7B7CE;
+    color: #333;
+}
+
+.pokemon-type-fairy {
+    background-color: #D685AD;
+    color: #333;
+}

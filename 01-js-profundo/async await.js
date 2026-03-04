@@ -1,33 +1,24 @@
-const data = [{
-    title: "Aprendiendo JavaScript",
-    description: "Aprendiendo JavaScript",
-    status: "pending"
-}, {
-    title: "Aprendiendo JavaScript",
-    description: "Aprendiendo JavaScript",
-    status: "pending"
-}, {
-    title: "Aprendiendo JavaScript",
-    description: "Aprendiendo JavaScript",
-    status: "pending"
-}];
 
-// const data = [];
-
-function getData() {
+function obtenerDatos(){
     return new Promise((resolve, reject) => {
-        if (data.length === 0) {
-            reject("No hay datos");
-        }
+        const error = false
         setTimeout(() => {
-            resolve(data);
+            if (error){
+                return reject("Error al obtener datos");
+            }else{
+                return resolve("Datos obtenidos");
+            }
         }, 2000);
     });
 }
 
-async function main() {
-    const books = await getData();
-    console.log(books);
+async function ejecutar(){
+    try {
+        const datos = await obtenerDatos();
+        console.log(datos);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-main();
+ejecutar();
