@@ -1,0 +1,7 @@
+{
+    "titulo": "Curso de Node.js",
+    "numeroVistas" : 1000,
+    "numeroLikes" : 500,
+    "temas": ["Node.js", "JavaScript", "Backend"],
+    "publicado": true
+}
