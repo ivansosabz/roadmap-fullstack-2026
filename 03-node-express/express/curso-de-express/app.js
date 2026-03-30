@@ -2,48 +2,82 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const {infoCursos} = require('./cursos.js');
+const { infoCursos } = require('./cursos.js');
 
-// Rutas
+// Routers
+const routerProgramacion = express.Router();
+const routerMatematicas = express.Router();
+
+app.use('/api/cursos/programacion', routerProgramacion);
+app.use('/api/cursos/matematicas', routerMatematicas);
+
+// Rutas principales
 app.get('/', (req, res) => {
     res.send('Servidor en Express');
 });
+
 app.get('/api/cursos', (req, res) => {
-    res.send(JSON.stringify(infoCursos));
+    res.json(infoCursos);
 });
-app.get('/api/cursos/programacion', (req, res) => {
-    res.send(infoCursos.programacion);
+
+// Rutas de programación
+routerProgramacion.get('/', (req, res) => {
+    res.json(infoCursos.programacion);
 });
-app.get('/api/cursos/programacion/:lenguaje', (req, res) => {
-    const lenguaje = req.params.lenguaje;
-    const resultados = infoCursos.programacion.filter(curso => curso.lenguaje === lenguaje);
+
+routerProgramacion.get('/:lenguaje/:nivel', (req, res) => {
+    const lenguaje = req.params.lenguaje.toLowerCase(); //toLowerCase para hacer la búsqueda insensible a mayúsculas/minúsculas
+    const nivel = req.params.nivel.toLowerCase(); 
+
+    const resultados = infoCursos.programacion.filter(
+        curso =>
+            curso.lenguaje.toLowerCase() === lenguaje &&
+            curso.nivel.toLowerCase() === nivel
+    );
+
     if (resultados.length > 0) {
-        res.send(resultados);
-    } else {
-        res.status(404).send(`No se encontraron cursos de programación para el lenguaje: ${lenguaje}`);
-    }
-});
-app.get('/api/cursos/programacion/:lenguaje/:nivel', (req, res) => {
-    const lenguaje = req.params.lenguaje;
-    const nivel = req.params.nivel;
-    const resultados = infoCursos.programacion.filter(curso => curso.lenguaje === lenguaje && curso.nivel === nivel);
-    if (resultados.length > 0) {
-        res.send(resultados);
+        res.json(resultados);
     } else {
         res.status(404).send(`No se encontraron cursos de programación para el lenguaje: ${lenguaje} y nivel: ${nivel}`);
     }
 });
-app.get('/api/cursos/matematicas', (req, res) => {
-    res.send(JSON.stringify(infoCursos.matematicas));
-});
-app.get('/api/cursos/matematicas/:tema', (req, res) => {
-    const tema = req.params.tema;
-    const resultados = infoCursos.matematicas.filter(curso => curso.tema === tema);
+
+routerProgramacion.get('/:lenguaje', (req, res) => {
+    const lenguaje = req.params.lenguaje.toLowerCase();
+
+    const resultados = infoCursos.programacion.filter(
+        curso => curso.lenguaje.toLowerCase() === lenguaje
+    );
+
     if (resultados.length > 0) {
-        res.send(resultados);
+        res.json(resultados);
+    } else {
+        res.status(404).send(`No se encontraron cursos de programación para el lenguaje: ${lenguaje}`);
+    }
+});
+
+// Rutas de matemáticas
+routerMatematicas.get('/', (req, res) => {
+    res.json(infoCursos.matematicas);
+});
+
+routerMatematicas.get('/:tema', (req, res) => {
+    const tema = req.params.tema.toLowerCase();
+
+    const resultados = infoCursos.matematicas.filter(
+        curso => curso.tema.toLowerCase() === tema
+    );
+
+    if (resultados.length > 0) {
+        res.json(resultados);
     } else {
         res.status(404).send(`No se encontraron cursos de matemáticas para el tema: ${tema}`);
     }
+});
+
+// Ruta no encontrada
+app.use((req, res) => {
+    res.status(404).send('Ruta no encontrada');
 });
 
 app.listen(port, () => {
