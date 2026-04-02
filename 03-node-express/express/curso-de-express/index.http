@@ -1,0 +1,34 @@
+POST http://localhost:3000/api/cursos/programacion/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 4,
+    "titulo": "Curso de React",
+    "nivel": "Intermedio",
+    "duracion": 20
+}
+
+###
+Put http://localhost:3000/api/cursos/programacion/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 3,
+    "titulo": "Curso de React",
+    "lenguaje": "JavaScript",
+    "vistas": 1500,
+    "nivel": "Intermedio",
+    "duracion": 20
+}
+
+###
+PATCH http://localhost:3000/api/cursos/programacion/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "titulo": "Aprende JavaScript",
+    "lenguaje": "JavaScript"
+}
+
+###
+delete http://localhost:3000/api/cursos/programacion/3 HTTP/1.1
