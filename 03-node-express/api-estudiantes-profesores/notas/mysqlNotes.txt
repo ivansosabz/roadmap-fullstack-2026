@@ -1,0 +1,2 @@
+Start-Service -Name MySQL93
+Get-Service -Name MySQL93

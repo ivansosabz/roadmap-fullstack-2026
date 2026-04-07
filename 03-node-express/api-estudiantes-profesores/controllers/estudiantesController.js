@@ -47,11 +47,36 @@ class EstudiantesController {
     }
     actualizar (req, res) {
         const {id} = req.params;
-        res.json({msg: `actualización del estudiante ${id}`});
+        const { dni, nombre, apellido, email } = req.body;
+        db.query(`update estudiantes set dni=?, nombre=?, apellido=?, email=? where id =?`, [dni, nombre, apellido, email, id],
+            (err, result) => {
+                if (err) {
+                    return res.status(400).json(err);
+                }
+                return res.status(200).json({
+                    msg: "Estudiante modificado correctamente",
+                    result
+                });
+            }
+        );
     }
-    borrar (req, res) {
-        const {id} = req.params;
-        res.json({msg: `eliminar el estudiante ${id}`});
+    borrar(req, res) {
+        const { id } = req.params;
+
+        db.query(
+            `DELETE FROM estudiantes WHERE id = ?`,
+            [id],
+            (err, result) => {
+                if (err) {
+                    return res.status(400).json(err);
+                }
+
+                return res.status(200).json({
+                    msg: `Estudiante ${id} eliminado correctamente`,
+                    result
+                });
+            }
+        );
     }
 }
 module.exports = new EstudiantesController();
