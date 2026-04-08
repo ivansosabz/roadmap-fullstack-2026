@@ -3,22 +3,79 @@ class ProfesoresController {
     constructor () {
     }
     consultar (req, res) {
-        res.json({msg: "consulta de profesores"});
+        db.query(`select * from profesores`,
+            (err, result) => {
+                if (err) {
+                    return res.status(400).json(err);
+                }
+                return res.status(201).json({
+                    msg: "profesores",
+                    result
+                });
+            }
+        );
     }
     consultarDetalle (req, res) {
-        const {id} = req.params;
-        res.json({msg: `consulta del profesor ${id}`});
+        const { id } = req.params;
+
+        db.query(`select * from profesores where id = ?`, [id],
+            (err, result) => {
+                if (err) {
+                    return res.status(400).json(err);
+                }
+                return res.status(201).json({
+                    msg: `consulta del profesor ${id}`,
+                    result
+                });
+            }
+        );
     }
     ingresar (req, res) {
-        res.json({msg: "ingreso de profesor"});
+        const { dni, nombre, apellido, email, profesion, telefono } = req.body;
+        db.query(`INSERT INTO profesores (id, dni, nombre, apellido, email, profesion, telefono) VALUES (NULL, ?, ?, ?, ?, ?, ?)`, [dni, nombre, apellido, email, profesion, telefono],
+            (err, result) => {
+                if (err) {
+                    return res.status(400).json(err);
+                }
+                return res.status(201).json({
+                    msg: "Profesor creado correctamente",
+                    result
+                });
+            }
+        );
     }
     actualizar (req, res) {
-        const {id} = req.params;
-        res.json({msg: `actualización del profesor ${id}`});
+        const { id } = req.params;
+        const { dni, nombre, apellido, email, profesion, telefono } = req.body;
+        db.query(`update profesores set dni=?, nombre=?, apellido=?, email=?, profesion=?, telefono=? where id =?`, [dni, nombre, apellido, email, profesion, telefono, id],
+            (err, result) => {
+                if (err) {
+                    return res.status(400).json(err);
+                }
+                return res.status(200).json({
+                    msg: "Profesor modificado correctamente",
+                    result
+                });
+            }
+        );
     }
     borrar (req, res) {
-        const {id} = req.params;
-        res.json({msg: `eliminar el profesor ${id}`});
+        const { id } = req.params;
+
+        db.query(
+            `DELETE FROM profesores WHERE id = ?`,
+            [id],
+            (err, result) => {
+                if (err) {
+                    return res.status(400).json(err);
+                }
+
+                return res.status(200).json({
+                    msg: `Profesor ${id} eliminado correctamente`,
+                    result
+                });
+            }
+        );
     }
 }
 module.exports = new ProfesoresController();

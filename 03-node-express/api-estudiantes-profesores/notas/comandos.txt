@@ -1,0 +1,17 @@
+#pycharm: 
+- renombrar variables: Shift + F6
+- reemplazar texto:
+    - archivo actual: Ctrl + R
+    - todos los archivos: Ctrl + Shift + R
+
+#vscode:
+- renombrar variables: F2
+- reemplazar texto:
+    - archivo actual: Ctrl + H
+    - todos los archivos: Ctrl + Shift + H
+
+#antigravity:
+- renombrar variables: Ctrl + R
+- reemplazar texto:
+    - archivo actual: Ctrl + H
+    - todos los archivos: Ctrl + Shift + H
