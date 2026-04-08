@@ -14,10 +14,10 @@ class CursosController {
     }
     consultarDetalle(req: Request, res: Response) {
         try {
-            res.send("Consulta de un profesor");
+            res.send("Consulta de un curso");
         } catch (error) {
             if (error instanceof Error) {
-                res.status(500).json({ msg: "Error al consultar el profesor", error: error.message });
+                res.status(500).json({ msg: "Error al consultar el curso", error: error.message });
             }
         }
     }
