@@ -1,0 +1,20 @@
+npm install -y
+npm i typescript -D
+tsc --init 
+configurar root y outDir en tsconfig
+npm i ts-node-dev => permite compilación automatica de js
+
+configurar en el pakage.json los scripts =>
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node build/index.js"
+  },
+
+npm i express
+npm i cors
+npm i morgan
+npm i @types/express -D
+npm i @types/cors -D
+npm i @types/morgan -D
