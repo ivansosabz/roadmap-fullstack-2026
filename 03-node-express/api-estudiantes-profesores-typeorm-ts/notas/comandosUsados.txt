@@ -18,3 +18,10 @@ npm i morgan
 npm i @types/express -D
 npm i @types/cors -D
 npm i @types/morgan -D
+
+npm install typeorm
+npm install reflect-metadata
+import "reflect-metadata"
+npm install @types/node --save-dev
+Install a database driver: see the documentation for each particular driver: mongodb, mssql, mysql/mariadb, oracle, postgres, sap, spanner, sqlite.
+npm install mssql
