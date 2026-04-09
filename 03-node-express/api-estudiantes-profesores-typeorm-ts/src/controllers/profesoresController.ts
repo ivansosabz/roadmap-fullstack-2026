@@ -1,52 +1,71 @@
 import { Request, Response } from "express";
+import { Profesores } from "../models/profesoresModel";
 
 class ProfesoresController {
     constructor() {
     }
-    consultar(req: Request, res: Response) {
+    async consultar(req: Request, res: Response) {
         try {
-            res.send("Consulta de profesores");
+            const data = await Profesores.find();
+            res.status(200).json({ msg: "Consulta de Profesores", data });
         } catch (error) {
             if (error instanceof Error) {
-                res.status(500).json({ msg: "Error al consultar profesores", error: error.message });
+                res.status(500).json({ msg: "Error al consultar Profesores", error: error.message });
             }
         }
     }
-    consultarDetalle(req: Request, res: Response) {
+    async consultarDetalle(req: Request, res: Response) {
+        const { id } = req.params;
         try {
-            res.send("Consulta de un profesor");
+            const registro = await Profesores.findOneBy({ id: Number(id) });
+            res.status(200).json({ msg: "Consulta de Profesor", registro });
+
         } catch (error) {
             if (error instanceof Error) {
-                res.status(500).json({ msg: "Error al consultar el profesor", error: error.message });
+                res.status(500).json({ msg: "Error al consultar el Profesor", error: error.message });
             }
         }
     }
-    ingresar(req: Request, res: Response) {
+    async ingresar(req: Request, res: Response) {
         try {
-            res.send("Ingreso de profesores");
+            const registro = await Profesores.save(req.body);
+            res.status(201).json({ msg: "Profesor ingresado", registro });
         } catch (error) {
             if (error instanceof Error) {
-                res.status(500).json({ msg: "Error al ingresar profesores", error: error.message });
+                res.status(500).json({ msg: "Error al ingresar Profesores", error: error.message });
             }
         }
     }
-    actualizar(req: Request, res: Response) {
+    async actualizar(req: Request, res: Response) {
+        const { id } = req.params;
         try {
-            res.send("Actualización de profesores");
+            const registro = await Profesores.findOneBy({ id: Number(id) });
+            if (!registro) {
+                return res.status(404).json({ msg: "Estudiante no encontrado" });
+            }
+            await Profesores.update({ id: Number(id) }, req.body);
+            res.status(200).json({ msg: "Estudiante actualizado" });
         } catch (error) {
             if (error instanceof Error) {
-                res.status(500).json({ msg: "Error al actualizar profesores", error: error.message });
+                res.status(500).json({ msg: "Error al actualizar Profesores", error: error.message });
             }
         }
     }
-    borrar(req: Request, res: Response) {
+    async borrar(req: Request, res: Response) {
+        const { id } = req.params;
         try {
-            res.send("Borrado de profesores");
+            const registro = await Profesores.findOneBy({ id: Number(id) });
+            if (!registro) {
+                return res.status(404).json({ msg: "Estudiante no encontrado" });
+            }
+            await Profesores.delete({ id: Number(id) });
+            res.status(200).json({ msg: "Estudiante eliminado" });
         } catch (error) {
             if (error instanceof Error) {
-                res.status(500).json({ msg: "Error al borrar profesores", error: error.message });
+                res.status(500).json({ msg: "Error al borrar Profesores", error: error.message });
             }
         }
     }
 }
+// module.exports = new ProfesoresController();
 export default new ProfesoresController();

@@ -8,12 +8,13 @@ import {
     ManyToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
+    BaseEntity
 } from "typeorm";
 import { Profesores } from "./profesoresModel";
 import { Estudiantes } from "./estudiantesModel";
 
 @Entity("cursos")
-export class Cursos {
+export class Cursos extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 

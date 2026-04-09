@@ -4,12 +4,13 @@ import {
     Entity,
     ManyToMany,
     PrimaryGeneratedColumn,
-    UpdateDateColumn
+    UpdateDateColumn,
+    BaseEntity
 } from "typeorm";
 import { Cursos } from "./cursosModel";
 
 @Entity("estudiantes")
-export class Estudiantes {
+export class Estudiantes extends BaseEntity {
     @PrimaryGeneratedColumn()
     // Corrección: number en vez de Number
     id: number;

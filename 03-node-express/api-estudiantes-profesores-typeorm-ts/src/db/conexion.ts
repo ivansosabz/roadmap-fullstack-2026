@@ -10,7 +10,7 @@ export const AppDataSource = new DataSource({
     username: "root",
     password: "hello",
     database: "courses",
-    synchronize: true,
+    synchronize: false, // Nunca usar synchronize: true en producción, puede causar pérdida de datos.
     logging: true,
     entities: [Estudiantes, Cursos, Profesores],
     subscribers: [],
