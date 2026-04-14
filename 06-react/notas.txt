@@ -1,0 +1,7 @@
+48 minutos
+empaquetador de aplicaciones web = vite
+
+npm init -y
+npm create vite@latest
+
+los componentes siempre deben estar en PascalCase no en camelCase
