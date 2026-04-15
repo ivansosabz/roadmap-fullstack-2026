@@ -1,0 +1,2 @@
+un componente es una funcion que crea un elemento
+en chakra-ui se pueden encontrar muchos componentes para usar
